@@ -26,4 +26,9 @@ public class StringCalculatorTest {
     public void parse_zero_when_receive_more_of_two_numbers(){
         assertEquals(0, newStringCalculator.add("1,2,3"));
     }
+
+    @Test
+    public void sum_numbers(){
+        assertEquals(5, newStringCalculator.sum(new int[]{1,2,2}));
+    }
 }
