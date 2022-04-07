@@ -24,6 +24,6 @@ public class StringCalculatorTest {
 
     @Test
     public void parse_zero_when_receive_more_of_two_numbers(){
-        assertEquals(0, newStringCalculator.add("1"));
+        assertEquals(0, newStringCalculator.add("1,2,3"));
     }
 }
