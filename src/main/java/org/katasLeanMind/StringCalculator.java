@@ -36,7 +36,7 @@ public class StringCalculator {
             if (actualNumber < 0)
                 throw new NegativeNumberException("Error, no supported negative numbers");
 
-            total += actualNumber;
+            if (actualNumber <= 1000) total += actualNumber;
         }
 
         return total;

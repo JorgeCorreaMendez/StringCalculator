@@ -70,7 +70,7 @@ public class StringCalculatorTest {
     @Test
     public void sum_numbers_but_if_the_number_is_higher_than_one_thousand_ignore_it(){
         try {
-            assertEquals(1003, newStringCalculator.add("//;\n2;1001"));
+            assertEquals(2, newStringCalculator.add("//;\n2;1001"));
         } catch (Exception e) {
             e.printStackTrace();
         }
