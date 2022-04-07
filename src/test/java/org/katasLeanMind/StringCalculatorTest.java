@@ -29,6 +29,6 @@ public class StringCalculatorTest {
 
     @Test
     public void sum_numbers(){
-        assertEquals(5, newStringCalculator.sum(new int[]{1,2,2}));
+        assertEquals(5, newStringCalculator.sum(new String[]{"1","2","2"}));
     }
 }

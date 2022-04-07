@@ -15,11 +15,11 @@ public class StringCalculator {
         return 1000;
     }
 
-    public int sum(int[] numbers) {
+    public int sum(String[] numbers) {
         int total = 0;
 
-        for (int number: numbers) {
-            total =+ number;
+        for (String number: numbers) {
+            total += Integer.parseInt(number);
         }
 
         return total;
