@@ -7,9 +7,9 @@ public class StringCalculator {
         if (numberText.equals("")) return 0;
 
         String[] numbersText = numberText.split(",");
-        int numberOfNumbers = numberText.length();
+        int numberOfNumbers = numbersText.length;
 
-        if (numberOfNumbers > 3) return 0;
+        if (numberOfNumbers > 2) return 0;
 
         return 1000;
     }
