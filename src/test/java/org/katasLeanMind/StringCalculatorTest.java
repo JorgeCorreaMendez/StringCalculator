@@ -28,7 +28,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void sum_numbers(){
-        assertEquals(5, newStringCalculator.sum(new String[]{"1","2","2"}));
+    public void sum_numbers_when_receive_two_numbers(){
+        assertEquals(10, newStringCalculator.add("5,5"));
     }
 }

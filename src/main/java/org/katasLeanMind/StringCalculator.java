@@ -12,10 +12,10 @@ public class StringCalculator {
 
         if (numberOfNumbers > 2) return 0;
 
-        return 1000;
+        return sum(numbersText);
     }
 
-    public int sum(String[] numbers) {
+    private int sum(String[] numbers) {
         int total = 0;
 
         for (String number: numbers) {
