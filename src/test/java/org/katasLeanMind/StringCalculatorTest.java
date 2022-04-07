@@ -3,6 +3,9 @@ package org.katasLeanMind;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.katasLeanMind.exceptions.InvalidFormatException;
+import org.katasLeanMind.exceptions.negativeNumberException;
+
+import java.net.PortUnreachableException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -45,6 +48,11 @@ public class StringCalculatorTest {
     @Test
     public void sum_number_when_receive_two_numbers_with_specific_separator() throws InvalidFormatException {
         assertEquals(3, newStringCalculator.add("//;\n1;2"));
+    }
+
+    @Test(expected = negativeNumberException.class)
+    public void throw_exception_when_receive_negative_numbers() throws InvalidFormatException {
+        newStringCalculator.add("//;\n-1;-1");
     }
 
 
