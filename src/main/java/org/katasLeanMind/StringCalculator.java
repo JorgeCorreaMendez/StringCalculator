@@ -10,20 +10,23 @@ public class StringCalculator {
 
     public int add(String numberText) throws InvalidFormatException, NegativeNumberException {
         if (numberText.equals("")) return 0;
+
         if (numberText.contains(",\n"))
             throw new InvalidFormatException("Error, Invalid format, you can't use ,\\n");
 
-        String[] contentsText = numberText.split("\n");
-
-        if(contentsText[1].contains("-"))
+        // Not support - separator
+        if (numberText.contains("-"))
             throw new NegativeNumberException("Error, no supported negative numbers");
 
 
-        String separator = contentsText[0].substring(contentsText[0].length() - 1);
+        String[] numbersText;
+        if (numberText.startsWith("/")) {
+            numbersText = getNumberWithSeparator(numberText);
+        } else {
+            numbersText = getNumbersWithoutSeparator(numberText);
+        }
 
-        String[] numbersText = contentsText[1].split(separator);
-
-        int numberOfNumbers = numbersText[1].length();
+        int numberOfNumbers = numbersText.length;
         if (numberOfNumbers > 2) return 0;
 
         return sum(numbersText);
@@ -39,5 +42,16 @@ public class StringCalculator {
         return total;
     }
 
+    private String[] getNumbersWithoutSeparator(String numbers) {
+        return numbers.split("\n|,");
+    }
+
+    private String[] getNumberWithSeparator(String numbers) {
+        String[] contentsText = numbers.split("\n");
+
+        String separator = contentsText[0].substring(contentsText[0].length() - 1);
+
+        return contentsText[1].split(separator);
+    }
 
 }

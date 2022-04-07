@@ -1,6 +1,5 @@
 package org.katasLeanMind;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.katasLeanMind.exceptions.InvalidFormatException;
 import org.katasLeanMind.exceptions.NegativeNumberException;
@@ -23,7 +22,6 @@ public class StringCalculatorTest {
     }
 
     @Test
-    @Ignore
     public void parse_zero_when_receive_more_of_two_numbers() {
         try {
             assertEquals(0, newStringCalculator.add("1,2,3"));
@@ -33,7 +31,6 @@ public class StringCalculatorTest {
     }
 
     @Test
-    @Ignore
     public void sum_numbers_when_receive_two_numbers() {
         try {
             assertEquals(10, newStringCalculator.add("5,5"));
@@ -43,7 +40,6 @@ public class StringCalculatorTest {
     }
 
     @Test
-    @Ignore
     public void sum_numbers_when_receive_two_numbers_with_separator() {
         try {
             assertEquals(6, newStringCalculator.add("1\n5"));
@@ -53,7 +49,6 @@ public class StringCalculatorTest {
     }
 
     @Test(expected = InvalidFormatException.class)
-    @Ignore
     public void throw_exception_when_receive_two_numbers_with_bad_format() throws InvalidFormatException, NegativeNumberException {
         newStringCalculator.add("1,\n8");
     }
