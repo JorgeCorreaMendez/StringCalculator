@@ -1,9 +1,11 @@
 package org.katasLeanMind;
 
+import org.junit.Ignore;
+import org.junit.Test;
+import org.katasLeanMind.exceptions.InvalidFormatException;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
 
 /**
  * Unit test for simple App.
@@ -38,7 +40,8 @@ public class StringCalculatorTest {
     }
 
 
-    @Test(expected = invalidFormat.class)
+    @Ignore
+    @Test(expected = InvalidFormatException.class)
     public void throw_exception_when_receive_two_numbers_with_bad_format(){
         assertEquals(10, newStringCalculator.add("1,/n8"));
     }
