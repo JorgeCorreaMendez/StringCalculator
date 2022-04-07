@@ -21,4 +21,9 @@ public class StringCalculatorTest {
     public void parse_zero_when_not_receive_number(){
         assertEquals(0, newStringCalculator.add(""));
     }
+
+    @Test
+    public void parse_zero_when_receive_more_of_two_numbers(){
+        assertEquals(0, newStringCalculator.add("1"));
+    }
 }
