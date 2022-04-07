@@ -31,4 +31,15 @@ public class StringCalculatorTest {
     public void sum_numbers_when_receive_two_numbers(){
         assertEquals(10, newStringCalculator.add("5,5"));
     }
+
+    @Test
+    public void sum_numbers_when_receive_two_numbers_with_separator(){
+        assertEquals(2, newStringCalculator.add("1/n5"));
+    }
+
+
+    @Test(expected = invalidFormat.class)
+    public void throw_exception_when_receive_two_numbers_with_bad_format(){
+        assertEquals(10, newStringCalculator.add("1,/n8"));
+    }
 }
