@@ -66,4 +66,13 @@ public class StringCalculatorTest {
     public void throw_exception_when_receive_negative_numbers() throws InvalidFormatException, NegativeNumberException {
         newStringCalculator.add("//;\n-1;-1");
     }
+
+    @Test
+    public void sum_numbers_but_if_the_number_is_higher_than_one_thousand_ignore_it(){
+        try {
+            assertEquals(1003, newStringCalculator.add("//;\n2;1001"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
