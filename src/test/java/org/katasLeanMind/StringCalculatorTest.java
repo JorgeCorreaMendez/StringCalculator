@@ -31,8 +31,9 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void sum_numbers_when_receive_two_numbers() {
+    public void sum_numbers_when_receive_numbers() {
         try {
+            assertEquals(5, newStringCalculator.add("5"));
             assertEquals(10, newStringCalculator.add("5,5"));
         } catch (Exception e) {
             e.printStackTrace();
@@ -56,7 +57,9 @@ public class StringCalculatorTest {
     @Test
     public void sum_number_when_receive_two_numbers_with_specific_separator() {
         try {
-            assertEquals(3, newStringCalculator.add("//;\n1;2"));
+            assertEquals(3, newStringCalculator.add("//[;]\n1;2"));
+            assertEquals(3, newStringCalculator.add("//[%%]\n1%%2"));
+            assertEquals(3, newStringCalculator.add("//[***]\n1***2"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,13 +67,13 @@ public class StringCalculatorTest {
 
     @Test(expected = NegativeNumberException.class)
     public void throw_exception_when_receive_negative_numbers() throws InvalidFormatException, NegativeNumberException {
-        newStringCalculator.add("//;\n-1;-1");
+        newStringCalculator.add("//[;]\n-1;-1");
     }
 
     @Test
     public void sum_numbers_but_if_the_number_is_higher_than_one_thousand_ignore_it(){
         try {
-            assertEquals(2, newStringCalculator.add("//;\n2;1001"));
+            assertEquals(2, newStringCalculator.add("//[;]\n2;1001"));
         } catch (Exception e) {
             e.printStackTrace();
         }

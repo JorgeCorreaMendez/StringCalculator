@@ -49,7 +49,9 @@ public class StringCalculator {
     private String[] getNumberWithSeparator(String numbers) {
         String[] contentsText = numbers.split("\n");
 
-        String separator = contentsText[0].substring(contentsText[0].length() - 1);
+        int indexOfStartSeparator = contentsText[0].indexOf("[") + 1;
+        int indexOfEndSeparator = contentsText[0].indexOf("]");
+        String separator = contentsText[0].substring(indexOfStartSeparator, indexOfEndSeparator);
 
         return contentsText[1].split(separator);
     }
