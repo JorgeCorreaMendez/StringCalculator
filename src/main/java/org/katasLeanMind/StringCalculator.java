@@ -21,9 +21,6 @@ public class StringCalculator {
             numbersText = getNumbersWithoutSeparator(numberText);
         }
 
-        int numberOfNumbers = numbersText.length;
-        if (numberOfNumbers > 2) return 0;
-
         return sum(numbersText);
     }
 
@@ -49,9 +46,19 @@ public class StringCalculator {
     private String[] getNumberWithSeparator(String numbers) {
         String[] contentsText = numbers.split("\n");
 
-        int indexOfStartSeparator = contentsText[0].indexOf("[") + 1;
-        int indexOfEndSeparator = contentsText[0].indexOf("]");
-        String separator = contentsText[0].substring(indexOfStartSeparator, indexOfEndSeparator);
+        String separator = "";
+
+        int index = 0;
+
+        while (index != contentsText[0].length()){
+            int indexOfStartSeparator = contentsText[0].indexOf("[", index) + 1;
+            int indexOfEndSeparator = contentsText[0].indexOf("]", index);
+            separator += contentsText[0].substring(indexOfStartSeparator, indexOfEndSeparator) + "|";
+
+            index = indexOfEndSeparator + 1;
+        }
+
+        separator = separator.substring(0, separator.length() -1);
 
         return contentsText[1].split(separator);
     }
