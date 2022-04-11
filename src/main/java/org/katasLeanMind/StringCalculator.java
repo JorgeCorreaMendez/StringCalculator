@@ -3,7 +3,6 @@ package org.katasLeanMind;
 import org.katasLeanMind.exceptions.InvalidFormatException;
 import org.katasLeanMind.exceptions.NegativeNumberException;
 
-
 public class StringCalculator {
     public StringCalculator() {
     }
@@ -14,14 +13,11 @@ public class StringCalculator {
         if (numberText.contains(",\n"))
             throw new InvalidFormatException("Error, Invalid format, you can't use ,\\n");
 
-        String[] numbersText;
-        if (numberText.startsWith("/")) {
-            numbersText = getNumberWithSeparator(numberText);
-        } else {
-            numbersText = getNumbersWithoutSeparator(numberText);
-        }
 
-        return sum(numbersText);
+        if (numberText.startsWith("//"))
+            return sum(getNumberWithSeparator(numberText));
+
+        return sum(getNumbersWithoutSeparator(numberText));
     }
 
     private int sum(String[] numbers) throws NegativeNumberException {
