@@ -3,6 +3,8 @@ package org.katasLeanMind;
 import org.katasLeanMind.exceptions.InvalidFormatException;
 import org.katasLeanMind.exceptions.NegativeNumberException;
 
+import java.util.Arrays;
+
 public class StringCalculator {
     public StringCalculator() {
     }
@@ -23,16 +25,21 @@ public class StringCalculator {
     private int sum(String[] numbers) throws NegativeNumberException {
         int total = 0;
 
-        for (String number : numbers) {
-            int actualNumber = Integer.parseInt(number);
-
-            if (actualNumber < 0)
-                throw new NegativeNumberException("Error, no supported negative numbers");
-
-            if (actualNumber <= 1000) total += actualNumber;
+        if (numbers.length == 0){
+            return 0;
         }
 
-        return total;
+        int number = Integer.parseInt(numbers[0]);
+
+        if (number < 0) {
+            throw new NegativeNumberException("Error, no supported negative numbers");
+        }
+
+        if (number <= 1000) {
+            total += number;
+        }
+
+        return total + sum(Arrays.copyOfRange(numbers, 1, numbers.length));
     }
 
     private String[] getNumbersWithoutSeparator(String numbers) {
